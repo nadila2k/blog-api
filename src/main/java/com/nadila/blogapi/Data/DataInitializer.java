@@ -1,7 +1,9 @@
 package com.nadila.blogapi.Data;
 
 import com.nadila.blogapi.enums.Roles;
+import com.nadila.blogapi.model.Category;
 import com.nadila.blogapi.model.Users;
+import com.nadila.blogapi.repository.CategoryRepository;
 import com.nadila.blogapi.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +15,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Transactional
 @Component
@@ -20,10 +25,13 @@ public class DataInitializer implements ApplicationListener<ApplicationReadyEven
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CategoryRepository categoryRepository;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
                 createAdmin();
+        createCategory();
+
     }
 
     @Override
@@ -52,5 +60,24 @@ public class DataInitializer implements ApplicationListener<ApplicationReadyEven
             System.out.println("Admin already exists");
         }
 
+    }
+
+
+    public void createCategory(){
+        List<Category> categories = Arrays.asList(
+                new Category(null, "Technology"),
+                new Category(null, "Lifestyle"),
+                new Category(null, "Health & Fitness"),
+                new Category(null, "Food & Recipes"),
+                new Category(null, "Travel")
+        );
+
+        for (Category category : categories) {
+            if (!categoryRepository.existsByName(category.getName())) {
+                categoryRepository.save(category);
+            } else {
+                System.out.println("Category " + category.getName() + " already exists");
+            }
+        }
     }
 }
