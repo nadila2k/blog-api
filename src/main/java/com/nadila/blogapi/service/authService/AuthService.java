@@ -18,7 +18,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,7 +44,7 @@ public class AuthService {
                     Users user = new Users();
                     if (siginUpRequest.getImage() != null) {
                         ImageObj imageObj= iimageService.uploadImage(siginUpRequest.getImage());
-                        user.setImageName(imageObj.getImageName());
+                        user.setImage_name(imageObj.getImageName());
                         user.setUrl(imageObj.getUrl());
                     }
 
@@ -57,7 +56,7 @@ public class AuthService {
                     user.setRole(Roles.ARUTHER);
                     userRepository.save(user);
 
-                    return signin(new LoginRequests(request.getEmail(), request.getPassword()));
+                    return signing(new LoginRequests(request.getEmail(), request.getPassword()));
                 })
                 .orElseThrow(() -> new AlreadyExistsException("User already exists"));
     }
@@ -65,7 +64,7 @@ public class AuthService {
 
 
 
-    public JwtResponse signin(LoginRequests loginRequests) {
+    public JwtResponse signing(LoginRequests loginRequests) {
 
         try {
             Authentication authentication = authenticationManager

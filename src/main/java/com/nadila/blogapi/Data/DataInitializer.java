@@ -65,11 +65,11 @@ public class DataInitializer implements ApplicationListener<ApplicationReadyEven
 
     public void createCategory(){
         List<Category> categories = Arrays.asList(
-                new Category(null, "Technology"),
-                new Category(null, "Lifestyle"),
-                new Category(null, "Health & Fitness"),
-                new Category(null, "Food & Recipes"),
-                new Category(null, "Travel")
+                new Category(null, "Technology",null),
+                new Category(null, "Lifestyle",null),
+                new Category(null, "Health & Fitness",null),
+                new Category(null, "Food & Recipes",null),
+                new Category(null, "Travel",null)
         );
 
         for (Category category : categories) {

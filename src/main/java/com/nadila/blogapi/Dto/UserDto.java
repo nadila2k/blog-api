@@ -15,8 +15,7 @@ public class UserDto {
     private String lastName;
     private String email;
     private String phone_number;
-    private Roles role;
-    public String imageName;
+    public String image_name;
     public String url;
 
 }

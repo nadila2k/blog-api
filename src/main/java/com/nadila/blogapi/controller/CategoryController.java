@@ -11,6 +11,7 @@ import com.nadila.blogapi.service.category.ICategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,7 +49,7 @@ public class CategoryController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse> addCategory(@RequestBody CategoryRequest categoryRequest) {
+    public ResponseEntity<ApiResponse> addCategory(@Validated @RequestBody CategoryRequest categoryRequest) {
         try {
             Category category = categoryService.addCategory(categoryRequest);
             return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(ResponseStatus.SUCCESS,"Category added",category));
@@ -58,7 +59,7 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse> updateCategory(@PathVariable Long id, @RequestBody CategoryRequest categoryRequest) {
+    public ResponseEntity<ApiResponse> updateCategory(@PathVariable Long id, @Validated @RequestBody CategoryRequest categoryRequest) {
         try {
             Category category = categoryService.updateCategory(categoryRequest,id);
             return  ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(ResponseStatus.SUCCESS,"Category updated",category));

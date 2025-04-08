@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +28,7 @@ public class authController {
     @PostMapping("/signin")
     public ResponseEntity<ApiResponse> signin(@Valid @RequestBody LoginRequests loginRequests) {
         try {
-            JwtResponse jwtResponse = authService.signin(loginRequests);
+            JwtResponse jwtResponse = authService.signing(loginRequests);
             return ResponseEntity.ok(new ApiResponse(ResponseStatus.SUCCESS, "Login successful", jwtResponse));
 
         } catch (UsernameNotFoundException e) {
