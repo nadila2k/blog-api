@@ -19,7 +19,7 @@ public interface IiPostService {
     PostDto getPostById(Long id);
     List<PostDto> getPostsByUserId();
     List<PostDto> getPostsByCategoryId(Long id);
-
+    void updateLikeCount(Long postId, int num);
 
 
 }

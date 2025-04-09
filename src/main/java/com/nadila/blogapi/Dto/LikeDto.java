@@ -12,4 +12,10 @@ public class LikeDto {
     private Long id;
     private PostDto postDto;
     private UserDto userDto;
+
+    public void setUserId(Object o) {
+    }
+
+    public void setPostId(Object o) {
+    }
 }

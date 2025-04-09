@@ -18,7 +18,7 @@ public class Likes {
     @JoinColumn(name = "user_id")
     private Users user;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "post_id")
     private Posts post;
 

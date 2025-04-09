@@ -197,7 +197,19 @@ public class PostService implements IiPostService{
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public void updateLikeCount(Long postId,int num) {
 
+        Posts posts = postRepository.findById(postId).orElseThrow(() -> new ResourceNotFound("Post not found with id " + postId));
+        if (num > 0){
+            posts.setLike_count(posts.getLike_count() + 1);
+            postRepository.save(posts);
+            System.out.println("Post updated successfully");
+        }else  {
+            posts.setLike_count(posts.getLike_count() - 1);
+        }
+        postRepository.save(posts);
+    }
 
 
 }
