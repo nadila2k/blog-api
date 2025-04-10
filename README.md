@@ -33,9 +33,3 @@ A full-featured RESTful web API built with Java Spring Boot to support a blog pl
 - PostgreSQL
 - AWS S3 Bucket (for storing images)
 
-### Setup Instructions
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/springboot-blog-api.git
-   cd springboot-blog-api
