@@ -1,35 +1,46 @@
-# Blog API - Content Management System
+Blog API - Content Management System
+A full-featured RESTful web API built with Java Spring Boot to support a blogging platform. This application allows users to create, update, and delete blog posts, manage comments, and upload images using AWS S3. Additionally, it integrates OpenAI for generating post content.
 
-A full-featured RESTful web API built with Java Spring Boot to support a blog platform. The application allows users to create, update, and delete blog posts, manage comments, and upload images using AWS S3.
+Features
+🔐 Secure Authentication & Authorization: User authentication and authorization with Spring Security.
 
-## Features
+📝 Blog Post CRUD Operations: Create, read, update, and delete blog posts.
 
-- 🔐 Secure user authentication and authorization using Spring Security
-- 📝 CRUD operations for blog posts
-- 💬 Comment system for blog posts
-- ☁️ Image upload and retrieval using AWS S3
-- 📂 Organized API structure using REST principles
-- 📊 PostgreSQL database integration
-- 🔄 Pagination and sorting support for post listing
-- 📪 API tested with Postman
+💬 Comment System: Users can comment on blog posts.
 
-## Technologies Used
+☁️ AWS S3 Integration: Upload and retrieve images from AWS S3.
 
-- Java
-- Spring Boot
-- Spring Data JPA
-- Spring Security
-- PostgreSQL
-- AWS S3 (for image storage)
-- Postman (for testing)
-- Git & GitHub
+📊 PostgreSQL Integration: Database management with PostgreSQL.
 
-## Getting Started
+🔄 Pagination & Sorting: Easily navigate through posts with pagination and sorting.
 
-### Prerequisites
+📪 API Testing: Use Postman for testing all API endpoints.
 
-- Java 17+
-- Maven
-- PostgreSQL
-- AWS S3 Bucket (for storing images)
+Technologies Used
+Java 17+
 
+Spring Boot
+
+Spring Data JPA
+
+Spring Security
+
+PostgreSQL
+
+AWS S3 (for image storage)
+
+OpenAI API (for content generation)
+
+Postman (for API testing)
+
+Git & GitHub (for version control)
+
+Getting Started
+Prerequisites
+Java 17+: Ensure you have Java 17 or later installed on your machine.
+
+Maven: Maven for project build management.
+
+PostgreSQL: Set up a PostgreSQL database to store your data.
+
+AWS S3: You’ll need an AWS S3 bucket for storing images.
